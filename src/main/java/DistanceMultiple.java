@@ -52,15 +52,17 @@ public class DistanceMultiple {
             String[] coordinate = point.split(",");
             double x1 = Double.parseDouble(coordinate[0].trim());
             double y1 = Double.parseDouble(coordinate[1].trim());
-
+            double x2 = Double.parseDouble(coordinate[2].trim());
+            double y2 = Double.parseDouble(coordinate[3].trim());
             // Prompt for (x2,y2)
+            /*
             System.out.print("Enter (x2,y2): ");
             String point2 = scan.nextLine().trim();
             point2 = point2.replace("(","").replace(")","");
             String[] coordanite2 = point2.split(",");
             double x2 = Double.parseDouble(coordanite2[0].trim());
             double y2 = Double.parseDouble(coordanite2[1].trim());
-
+            */
             // Calculate the distance
             double distance = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
 

@@ -36,7 +36,7 @@ public class DistanceMultiple
     public static void main(String[] args)
     {
 // Signature
-        System.out.println("Dax Robinson\nAPCS-A\nLewis Artithmetic 2.8\n");
+        //System.out.println("Dax Robinson\nAPCS-A\nLewis Artithmetic 2.8\n");
 
 // Create scanner
         Scanner scan = new Scanner(System.in);

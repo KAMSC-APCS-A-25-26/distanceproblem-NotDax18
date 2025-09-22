@@ -55,14 +55,14 @@ public class DistanceMultiple
 
 // Regex to match numbers inside parentheses
             Pattern pattern = Pattern.compile("\\(([^,]+),\\s*([^\\)]+)\\)\\s*\\(([^,]+),\\s*([^\\)]+)\\)");
-            Matcher match = pattern.matcher(input);
-            match.matches();
+            Matcher matcher = pattern.matcher(input);
+            matcher.matches();
 
 //
-            double x1 = Double.parseDouble(match.group(1).trim());
-            double y1 = Double.parseDouble(match.group(2).trim());
-            double x2 = Double.parseDouble(match.group(3).trim());
-            double y2 = Double.parseDouble(match.group(4).trim());
+            double x1 = Double.parseDouble(matcher.group(1).trim());
+            double y1 = Double.parseDouble(matcher.group(2).trim());
+            double x2 = Double.parseDouble(matcher.group(3).trim());
+            double y2 = Double.parseDouble(matcher.group(4).trim());
 
 // Input points into the distance formula and output the distance
             double distance = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));

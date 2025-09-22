@@ -28,48 +28,46 @@
 
 
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
-
-public class DistanceMultiple {
-    public static void main (String[] args)
+public class DistanceMultiple
+{
+    public static void main(String[] args)
     {
-        Scanner scan = new Scanner(System.in);
-        System.out.println("Dax Robinson\nAPCS-A\nLewis 2.8 Distance Program");
-        System.out.println();
+// Signature
+        System.out.println("Dax Robinson\nAPCS-A\nLewis Artithmetic 2.8\n");
 
-        // Prompt for the number of runs
+// Create scanner
+        Scanner scan = new Scanner(System.in);
+
+// Prompt for number of runs
         System.out.print("Enter number of runs: ");
         int numRuns = scan.nextInt();
-        System.out.println();
         scan.nextLine();
+        System.out.println("");
 
-        for (int i = 1; i <= numRuns; i++)
+        for(int i = 0; i < numRuns; i++)
         {
-            // Prompt for (x1,y1)
-            System.out.print("Enter (x1,y1): ");
-            String point = scan.nextLine().trim();
-            point = point.replace("(","").replace(")","");
-            String[] coordinate = point.split(",");
-            double x1 = Double.parseDouble(coordinate[0].trim());
-            double y1 = Double.parseDouble(coordinate[1].trim());
-            double x2 = Double.parseDouble(coordinate[2].trim());
-            double y2 = Double.parseDouble(coordinate[3].trim());
-            // Prompt for (x2,y2)
-            /*
-            System.out.print("Enter (x2,y2): ");
-            String point2 = scan.nextLine().trim();
-            point2 = point2.replace("(","").replace(")","");
-            String[] coordanite2 = point2.split(",");
-            double x2 = Double.parseDouble(coordanite2[0].trim());
-            double y2 = Double.parseDouble(coordanite2[1].trim());
-            */
-            // Calculate the distance
-            double distance = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+// Prompt for coordinates
+            System.out.print("Enter coordinates: ");
+            String input = scan.nextLine();
 
-            // Print the distance
-            System.out.println("Distance: " + distance);
-            System.out.println();
+// Regex to match numbers inside parentheses
+            Pattern pattern = Pattern.compile("\\(([^,]+),\\s*([^\\)]+)\\)\\s*\\(([^,]+),\\s*([^\\)]+)\\)");
+            Matcher match = pattern.matcher(input);
+            match.matches();
+
+//
+            double x1 = Double.parseDouble(match.group(1).trim());
+            double y1 = Double.parseDouble(match.group(2).trim());
+            double x2 = Double.parseDouble(match.group(3).trim());
+            double y2 = Double.parseDouble(match.group(4).trim());
+
+// Input points into the distance formula and output the distance
+            double distance = Math.sqrt(Math.pow(x2 - x1, 2) + Math.pow(y2 - y1, 2));
+            System.out.println("Total distance: " + distance);
+            System.out.println("");
         }
     }
-
 }
